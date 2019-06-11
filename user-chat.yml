@@ -10,20 +10,6 @@ spring:
     hikari:
       maximum-pool-size: 20
       minimum-idle: 10
-  redis:
-    host: 192.168.1.118
-  rabbitmq:
-    host: 127.0.0.1
-    username: juzhang
-    password: 123456
-    virtual-host: /chat
-    template:
-      retry:
-        enabled: true
-        max-interval: 210000ms
-        initial-interval: 10000ms
-        multiplier: 2
-    publisher-confirms: true
 eureka:
   client:
     service-url:
