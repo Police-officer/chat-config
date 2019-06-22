@@ -10,20 +10,6 @@ spring:
     hikari:
       maximum-pool-size: 20
       minimum-idle: 10
-  redis:
-    host: 192.168.1.118
-  rabbitmq:
-    host: 127.0.0.1
-    username: juzhang
-    password: 123456
-    virtual-host: /leyou
-    template:
-      retry:
-        enabled: true
-        max-interval: 210000ms
-        initial-interval: 10000ms
-        multiplier: 2
-    publisher-confirms: true
 eureka:
   client:
     service-url:
@@ -31,22 +17,22 @@ eureka:
     registry-fetch-interval-seconds: 5
   instance:
     instance-id: ${spring.application.name}:${server.port}
-    prefer-ip-address: true  #µ±Äã»ñÈ¡hostÊ±£¬·µ»ØµÄ²»ÊÇÖ÷»úÃû£¬¶øÊÇip
+    prefer-ip-address: true  #å½“ä½ è·å–hostæ—¶ï¼Œè¿”å›çš„ä¸æ˜¯ä¸»æœºåï¼Œè€Œæ˜¯ip
     ip-address: 127.0.0.1
     lease-renewal-interval-in-seconds: 5
     lease-expiration-duration-in-seconds: 15
 ribbon:
-  ConnectTimeout: 4000 # Á¬½Ó³¬Ê±Ê±¼ä(ms)
-  ReadTimeout: 2000 # Í¨ĞÅ³¬Ê±Ê±¼ä(ms)
-  OkToRetryOnAllOperations: true # ÊÇ·ñ¶ÔËùÓĞ²Ù×÷ÖØÊÔ
-  MaxAutoRetriesNextServer: 1 # Í¬Ò»·şÎñ²»Í¬ÊµÀıµÄÖØÊÔ´ÎÊı
-  MaxAutoRetries: 1 # Í¬Ò»ÊµÀıµÄÖØÊÔ´ÎÊı
+  ConnectTimeout: 40000 # è¿æ¥è¶…æ—¶æ—¶é—´(ms)
+  ReadTimeout: 40000 # é€šä¿¡è¶…æ—¶æ—¶é—´(ms)
+  OkToRetryOnAllOperations: true # æ˜¯å¦å¯¹æ‰€æœ‰æ“ä½œé‡è¯•
+  MaxAutoRetriesNextServer: 1 # åŒä¸€æœåŠ¡ä¸åŒå®ä¾‹çš„é‡è¯•æ¬¡æ•°
+  MaxAutoRetries: 1 # åŒä¸€å®ä¾‹çš„é‡è¯•æ¬¡æ•°
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMillisecond: 10000 # ÈÛ¶Ï³¬Ê±Ê±³¤£º10000ms
+            timeoutInMillisecond: 50000 # ç†”æ–­è¶…æ—¶æ—¶é•¿ï¼š50000ms
 mybatis:
   type-aliases-package: com.chat.user.pojo

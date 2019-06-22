@@ -2,7 +2,7 @@ server:
   port: 10086
 spring:
   application:
-    name: ch-registry
+    name: ly-registry
 eureka:
   client:
     fetch-registry: false
@@ -10,19 +10,19 @@ eureka:
     service-url:
       defaultZone: http://127.0.0.1:10086/eureka
   server:
-    enable-self-preservation: false  #¹Ø±Õ×ÔÎÒ±£»¤
-    eviction-interval-timer-in-ms: 5000 #Ã¿¸ô5Ãë½øĞĞÒ»´Î·şÎñÁĞ±íÇåÀí
+    enable-self-preservation: false  #å…³é—­è‡ªæˆ‘ä¿æŠ¤
+    eviction-interval-timer-in-ms: 5000 #æ¯éš”5ç§’è¿›è¡Œä¸€æ¬¡æœåŠ¡åˆ—è¡¨æ¸…ç†
 
 ribbon:
-  ConnectTimeout: 4000 # Á¬½Ó³¬Ê±Ê±¼ä(ms)
-  ReadTimeout: 2000 # Í¨ĞÅ³¬Ê±Ê±¼ä(ms)
-  OkToRetryOnAllOperations: true # ÊÇ·ñ¶ÔËùÓĞ²Ù×÷ÖØÊÔ
-  MaxAutoRetriesNextServer: 1 # Í¬Ò»·şÎñ²»Í¬ÊµÀıµÄÖØÊÔ´ÎÊı
-  MaxAutoRetries: 1 # Í¬Ò»ÊµÀıµÄÖØÊÔ´ÎÊı
+  ConnectTimeout: 4000 # è¿æ¥è¶…æ—¶æ—¶é—´(ms)
+  ReadTimeout: 2000 # é€šä¿¡è¶…æ—¶æ—¶é—´(ms)
+  OkToRetryOnAllOperations: true # æ˜¯å¦å¯¹æ‰€æœ‰æ“ä½œé‡è¯•
+  MaxAutoRetriesNextServer: 1 # åŒä¸€æœåŠ¡ä¸åŒå®ä¾‹çš„é‡è¯•æ¬¡æ•°
+  MaxAutoRetries: 1 # åŒä¸€å®ä¾‹çš„é‡è¯•æ¬¡æ•°
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMillisecond: 10000 # ÈÛ¶Ï³¬Ê±Ê±³¤£º10000ms
+            timeoutInMillisecond: 10000 # ç†”æ–­è¶…æ—¶æ—¶é•¿ï¼š10000ms
