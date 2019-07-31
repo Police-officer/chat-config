@@ -10,10 +10,13 @@ spring:
     hikari:
       maximum-pool-size: 20
       minimum-idle: 10
+  servlet:
+    multipart:
+      location: /test
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:10086/eureka
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
     registry-fetch-interval-seconds: 5
   instance:
     instance-id: ${spring.application.name}:${server.port}
